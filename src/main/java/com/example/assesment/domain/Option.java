@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
 public class Option {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long optionId;
 	
 	 @ManyToOne

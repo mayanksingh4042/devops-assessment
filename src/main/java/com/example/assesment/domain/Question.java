@@ -21,16 +21,17 @@ import lombok.EqualsAndHashCode;
 public class Question {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long questionId;
 	
 	
 	 @ManyToOne
-	 @JoinColumn
+	 @JoinColumn(name="assessment_id")
 	 private Assesment assessment;
 	 
 	 @Column
 	 private String questionText;
+	 
 	 
 	 @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
 	 private Set<Option> responses;
