@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,6 +32,9 @@ public class Question {
 	 
 	 @Column
 	 private String questionText;
+	 
+	 @Enumerated(javax.persistence.EnumType.STRING)
+	 private QuestionType questionType;
 	 
 	 
 	 @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
