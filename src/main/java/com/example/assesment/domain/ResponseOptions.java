@@ -7,6 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 public class ResponseOptions {
 	
@@ -15,17 +20,14 @@ public class ResponseOptions {
 	private Long responseOptionId;
 	
 	
-	 @ManyToOne
-	 @JoinColumn
-	 private Response response;
 	
-	 @ManyToOne
-	 @JoinColumn
-	 private Question question;
+	 private Long response;
+	
+	
+	 private Long question;
 	 
-	 @ManyToOne
-	 @JoinColumn
-	 private Option option;
+	
+	 private Long option;
 	
 	
 

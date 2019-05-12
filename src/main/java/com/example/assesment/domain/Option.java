@@ -8,8 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
@@ -21,16 +22,22 @@ public class Option {
 	
 	 @ManyToOne
 	 @JoinColumn
+	 @JsonBackReference
 	 private Question question;
 	 
 	 @Column
 	 private String optionText;
 	 
 	 @Column
-	 private int weightage;
+	 private Integer weightage;
 	 
 	 @Column
 	 private String level;
+	 
+	 @Override
+	 public String toString() {
+		 return this.level;
+	 }
 	 
 	
 	

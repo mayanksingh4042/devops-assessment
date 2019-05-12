@@ -1,18 +1,20 @@
 package com.example.assesment.domain;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.example.assesment.service.AssesmentType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,7 +26,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = "questions")
 @Entity
-public class Assesment implements Serializable{
+public class Assessment implements Serializable{
 	
 	/**
 	 * 
@@ -40,8 +42,9 @@ public class Assesment implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private AssesmentType assesmentType;
 	
-	@OneToMany(mappedBy = "assessment", cascade = CascadeType.ALL)
-    private Set<Question> questions;
+	@OneToMany( fetch = FetchType.EAGER,mappedBy = "assessment", cascade = CascadeType.ALL)
+	 @JsonManagedReference
+    private List<Question> questions;
 	
 	
 	
