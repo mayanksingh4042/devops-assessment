@@ -3,7 +3,12 @@ package com.example.assesment.web;
 import java.util.List;
 import java.util.Map;
 
+
 import lombok.AllArgsConstructor;
+
+import com.example.assesment.domain.Assessee;
+
+
 import lombok.Getter;
 
 @Getter
@@ -11,6 +16,7 @@ import lombok.Getter;
 public class AssesmentRequest {
 	
 	
+
     
 	private Map<Long,List<Long>> assesmentResponseMap;
 	
@@ -18,6 +24,16 @@ public class AssesmentRequest {
 	
 	private  String assessmentType;
 	
+	private Assessee assessee;
+
 	
+	
+
+	public AssesmentRequest(Assessee assessee ,Map<Long,List<Long>> assesmentResponseMap) {
+	
+		this.assesmentResponseMap=assesmentResponseMap;
+		this.assessee=assessee;
+	}
+
 
 }
