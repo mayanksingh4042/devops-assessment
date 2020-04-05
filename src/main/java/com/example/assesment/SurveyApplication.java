@@ -54,7 +54,7 @@ public class SurveyApplication {
 		//assessmentRepository.save(assessment);
 		assessmentRepository.save(cloudassessment);
 		Assessee assessee = new Assessee();
-		assessee.setBusinessUnitName("FInance");
+		assessee.setBusinessUnitName("Finance");
 		assessee.setTeamName("Project1");
 		AssesseeRepository assesseeRepository = applicationContext.getBean(AssesseeRepository.class);
 		assesseeRepository.save(assessee);
